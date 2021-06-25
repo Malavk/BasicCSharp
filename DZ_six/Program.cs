@@ -7,7 +7,10 @@ namespace DZ_six
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите имя процесса: ");
+            Process Dprocess = new Process();
+            Console.WriteLine($"Список всех ваших доступных процессов\ ID: {Dprocess.Id}  Name: {Dprocess.ProcessName}");
+
+            Console.WriteLine("Введите имя процесса которое хотите прекратить: ");
             string name = Console.ReadLine();
 
             foreach(Process process in Process.GetProcesses())
@@ -17,7 +20,7 @@ namespace DZ_six
                     process.Kill();
                     process.WaitForExit();
                 }
-                Console.WriteLine($"ID: {process.Id}  Name: {process.ProcessName}");
+                Console.WriteLine($"Измененный список процессов исключая тот который мы прекратили\ ID: {process.Id}  Name: {process.ProcessName}");
             }
         }
     }
